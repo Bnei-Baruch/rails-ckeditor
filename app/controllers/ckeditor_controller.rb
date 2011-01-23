@@ -1,5 +1,6 @@
 class CkeditorController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:create]
+  skip_before_filter :authenticate_user!, :only => [:create]
   before_filter :swf_options, :only => [:images, :files, :create]
   layout "ckeditor"
   
